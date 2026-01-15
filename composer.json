@@ -1,0 +1,15 @@
+{
+    "name": "aymen/clinic",
+    "autoload": {
+        "psr-4": {
+            "Aymen\\Clinic\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Aymen Oumaalla",
+            "email": "aymenoml2002@gmail.com"
+        }
+    ],
+    "require": {}
+}
