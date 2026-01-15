@@ -2,7 +2,7 @@
     "name": "aymen/clinic",
     "autoload": {
         "psr-4": {
-            "Aymen\\Clinic\\": "src/"
+            "App": "src/"
         }
     },
     "authors": [

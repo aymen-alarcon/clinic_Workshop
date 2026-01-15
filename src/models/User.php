@@ -5,13 +5,13 @@ use App\config;
 use PDO;
 
 class User{
-    private ?PDO $conn;
-    private ?int $id;
-    private ?string $first_name;
-    private ?string $last_name;
-    private ?string $email;
-    private ?string $password;
-    private ?string $date_creation;
+    protected ?PDO $conn;
+    protected ?int $id;
+    protected ?string $first_name;
+    protected ?string $last_name;
+    protected ?string $email;
+    protected ?string $password;
+    protected ?string $date_creation;
 
     function __construct($conn = NULL, $id = NULL, $first_name = NULL, $last_name = NULL, $email = NULL, $password = NUll, $date_creation = NULL)
     {
@@ -79,34 +79,5 @@ class User{
 
     public function setDate_creation($date_creation) {
         $this->date_creation = $date_creation;
-    }
-
-    function createUser(){
-        $sql = "INSERT INTO users (first_name, last_name, email, password, date_creation) Values (:first_name, :last_name, :email, :password, now())";
-        $stmt = $this->conn->prepare($sql);
-        $stmt->bindValue(":first_name", $this->getFirst_name());
-        $stmt->bindValue(":last_name", $this->getLast_name());
-        $stmt->bindValue(":email", $this->getEmail());
-        $stmt->bindValue(":password", password_hash($this->getPassword(), PASSWORD_DEFAULT));
-        $stmt->execute();
-        $userId = $this->conn->lastInsertId();
-        $_SESSION["id"] = $userId;
-    }
-
-    function loginUser(){
-        $sql = "SELECT * FROM users WHERE email = :email";
-        $stmt = $this->conn->prepare($sql);
-        $stmt->bindValue(":email", $this->getEmail());
-        $stmt->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE,self::class);
-        $stmt->execute();
-        $user = $stmt->fetch();
-        if (password_verify($this->getPassword() ,$user->getPassword()) === TRUE) {
-            $_SESSION["id"] = $user->getId();
-            $_SESSION["user"] = $user;
-            var_dump($_SESSION["user"]);
-        } else {
-            throw new \Exception("Invalid email or password.");
-            return NULL;
-        }
     }
 }
