@@ -5,8 +5,9 @@ class Traitement{
     private ?string $title;
     private ?string $description;
     private ?string $date;
+    private Consultation $consultation;
 
-    public function __construct($id = NULL, $title = NULL, $description = NULL, $date = NULL)
+    public function __construct($id = NULL, $title = NULL, $description = NULL, $date = NULL, $consultation= NULL)
     {
         $this->id = $id;
         $this->title = $title;

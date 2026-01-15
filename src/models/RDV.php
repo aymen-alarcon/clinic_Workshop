@@ -3,8 +3,9 @@ namespace App\Models;
 class RDV{
     private ?int $id;
     private ?string $date;
+    private Patient $patient;
 
-    public function __construct($id = NULL, $date = NULL)
+    public function __construct($id = NULL, $date = NULL, $patient = NULL)
     {
         $this->id = $id;
         $this->date = $date;

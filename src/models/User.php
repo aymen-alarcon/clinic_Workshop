@@ -2,10 +2,8 @@
 namespace App\Models;
 
 use App\config;
-use PDO;
 
 class User{
-    protected ?PDO $conn;
     protected ?int $id;
     protected ?string $first_name;
     protected ?string $last_name;
@@ -13,9 +11,8 @@ class User{
     protected ?string $password;
     protected ?string $date_creation;
 
-    function __construct($conn = NULL, $id = NULL, $first_name = NULL, $last_name = NULL, $email = NULL, $password = NUll, $date_creation = NULL)
+    function __construct($id = NULL, $first_name = NULL, $last_name = NULL, $email = NULL, $password = NUll, $date_creation = NULL)
     {
-        $this->conn = $conn;
         $this->id = $id;
         $this->first_name = $first_name;
         $this->last_name = $last_name;

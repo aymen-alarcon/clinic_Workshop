@@ -5,8 +5,9 @@ class Paiement{
     private ?float $price;
     private ?string $title;
     private ?string $date;
+    private Consultation $consultation;
 
-    public function __construct($id = NUll, $price = NULL, $title = NULL, $date = NULL)
+    public function __construct($id = NUll, $price = NULL, $title = NULL, $date = NULL, $consultation = NULL)
     {
         $this->id = $id;
         $this->price = $price;

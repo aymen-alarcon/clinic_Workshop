@@ -6,8 +6,11 @@ class Consultation{
     private ?string $title;
     private ?string $description;
     private ?string $date;
+    private Traitement $traitement;
+    private Paiement $paiement;
+    private RDV $rdv;
 
-    public function __construct($id = NULL, $title = NULL, $description = NULL, $date = NULL)
+    public function __construct($id = NULL, $title = NULL, $description = NULL, $date = NULL,$traitement = NULL, $rdv = NULL)
     {
         $this->id = $id;
         $this->title = $title;

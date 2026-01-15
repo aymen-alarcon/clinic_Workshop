@@ -4,8 +4,9 @@ class Operation{
     private ?int $id;
     private ?string $name;
     private ?string $date;
+    private Consultation $consultation;
 
-    public function __construct($id = NULL, $name = NULL, $date = NULL)
+    public function __construct($id = NULL, $name = NULL, $date = NULL, $consultation = NULL)
     {
         $this->id = $id;
         $this->name = $name;
