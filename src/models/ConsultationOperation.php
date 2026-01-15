@@ -1,16 +1,20 @@
 <?php
-namespace App\Models;
-class Operation{
-    private ?int $id;
-    private ?string $name;
-    private ?string $date;
-    private Consultation $consultation;
 
-    public function __construct($id = NULL, $name = NULL, $date = NULL, $consultation = NULL)
+use App\Models\Consultation;
+use App\Models\Operation;
+
+class ConsultationOperation{
+    private Consultation $consultation;
+    private Operation $operation;
+    private ?int $id;
+    private ?string $date;
+
+    public function __construct($consultation = NULL, $operation = NULL, $id = NULL, $date = NULL)
     {
         $this->id = $id;
-        $this->name = $name;
         $this->date = $date;
+        $this->consultation = $consultation;
+        $this->operation = $operation;
         $this->consultation = $consultation;
     }
 
@@ -22,16 +26,6 @@ class Operation{
     public function setId($id)
     {
         $this->id = $id;
-    }
-
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    public function setName($name)
-    {
-        $this->name = $name;
     }
 
     public function getDate()
@@ -52,5 +46,15 @@ class Operation{
     public function setConsultation($consultation)
     {
         $this->consultation = $consultation;
+    }
+
+    public function getOperation()
+    {
+        return $this->operation;
+    }
+
+    public function setOperation($operation)
+    {
+        $this->operation = $operation;
     }
 }

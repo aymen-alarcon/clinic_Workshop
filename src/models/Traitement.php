@@ -13,6 +13,7 @@ class Traitement{
         $this->title = $title;
         $this->description = $description;
         $this->date = $date;   
+        $this->consultation = $consultation;
     }
 
     public function getId()
@@ -53,5 +54,15 @@ class Traitement{
     public function setDate($date)
     {
         $this->date = $date;
+    }
+
+    public function getConsultation()
+    {
+        return $this->consultation;
+    }
+
+    public function setConsultation($consultation)
+    {
+        $this->consultation = $consultation;
     }
 }

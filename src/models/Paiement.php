@@ -13,6 +13,7 @@ class Paiement{
         $this->price = $price;
         $this->title = $title;
         $this->date = $date;
+        $this->consultation = $consultation;
     }
 
     public function getId()
@@ -53,5 +54,15 @@ class Paiement{
     public function setDate($date)
     {
         $this->date = $date;
+    }
+
+    public function getConsultation()
+    {
+        return $this->consultation;
+    }
+
+    public function setConsultation($consultation)
+    {
+        $this->consultation = $consultation;
     }
 }

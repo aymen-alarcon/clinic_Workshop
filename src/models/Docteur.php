@@ -5,9 +5,20 @@ use App\Models\User;
 class Docteur extends User{
     private Consultation $consultation;
     public function __construct($conn = NULL, $id = NULL, $first_name = NULL, $last_name = NULL, $email = NULL, $password = NUll, $date_creation = NULL
-    ,$consultation =NULL,
+    ,$consultation =NULL
     )
     {
+        $this->consultation = $consultation;
         return parent::__construct($conn, $id, $first_name, $last_name, $email, $password, $date_creation);
+    }
+
+    public function getConsultation()
+    {
+        return $this->consultation;
+    }
+
+    public function setConsultation($consultation)
+    {
+        $this->consultation = $consultation;
     }
 }
